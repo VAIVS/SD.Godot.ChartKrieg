@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://3u28tc4hr8dp"]
+
+[ext_resource type="Texture2D" uid="uid://dp6i0c428y5xi" path="res://Assets/Map/elements/rocksMountain.png" id="1_dkiyi"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_p6wkm"]
+vertices = PackedVector2Array(1086, 249, 986, 528, 610, 636, 604, 194)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(594, 183, 601, 650, 993, 537, 1100, 241)])
+parsed_collision_mask = 4294967040
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yya0p"]
+radius = 68.0
+
+[node name="MontainLayer" type="NavigationRegion2D"]
+position = Vector2(-2, -75)
+navigation_polygon = SubResource("NavigationPolygon_p6wkm")
+navigation_layers = 2
+
+[node name="Lake" type="Sprite2D" parent="."]
+position = Vector2(702, 302)
+texture = ExtResource("1_dkiyi")
+
+[node name="Area2D" type="StaticBody2D" parent="Lake"]
+position = Vector2(-702, -302)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Lake/Area2D"]
+polygon = PackedVector2Array(606, 195, 614, 631, 984, 531, 1083, 253)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lake"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lake/StaticBody2D"]
+position = Vector2(-5, 14)
+shape = SubResource("CircleShape2D_yya0p")
+
+[node name="Lake2" type="Sprite2D" parent="."]
+position = Vector2(879, 286)
+texture = ExtResource("1_dkiyi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lake2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lake2/StaticBody2D"]
+position = Vector2(-5, 14)
+shape = SubResource("CircleShape2D_yya0p")
+
+[node name="Lake3" type="Sprite2D" parent="."]
+position = Vector2(694, 500)
+texture = ExtResource("1_dkiyi")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Lake3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lake3/StaticBody2D"]
+position = Vector2(-5, 14)
+shape = SubResource("CircleShape2D_yya0p")

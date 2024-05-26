@@ -1,30 +1,20 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdekbqak5lt8x"]
+[gd_scene load_steps=9 format=3 uid="uid://bdekbqak5lt8x"]
 
 [ext_resource type="Script" path="res://Scenes/timo/timo_test.gd" id="1_hakuu"]
 [ext_resource type="PackedScene" uid="uid://djj3ckj7tvqrd" path="res://Components/Map/BackgroundParallax/world_background_parallax.tscn" id="2_qt3gr"]
 [ext_resource type="PackedScene" uid="uid://gjipc6fyqt0p" path="res://Components/Test/test_player.tscn" id="3_tu4wp"]
+[ext_resource type="PackedScene" uid="uid://3u28tc4hr8dp" path="res://Components/Test/test_terrain.tscn" id="4_hl13g"]
 [ext_resource type="Texture2D" uid="uid://ogn1yefc6m6e" path="res://Assets/Map/elements/lake.png" id="4_rpq6d"]
-[ext_resource type="Texture2D" uid="uid://dp6i0c428y5xi" path="res://Assets/Map/elements/rocksMountain.png" id="5_767eb"]
 [ext_resource type="Texture2D" uid="uid://bkr0564cyi8n8" path="res://Assets/Map/elements/bush.png" id="6_kmupe"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_jmpfn"]
-vertices = PackedVector2Array(-30, 12, 1353, 17, 1095, 170, 594, 109, 602, 569, 475, 207, 461, 154, 461, 260, 1395, 688, 990, 464, 422, 299, 369, 313, -13, 689, 422, 115, 316, 299, 277, 260, 263, 207, 277, 154, 316, 115, 369, 101)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(3, 4, 5, 6), PackedInt32Array(7, 5, 4), PackedInt32Array(2, 1, 8, 9), PackedInt32Array(10, 7, 4), PackedInt32Array(11, 10, 4, 12), PackedInt32Array(3, 6, 13), PackedInt32Array(4, 9, 8), PackedInt32Array(4, 8, 12), PackedInt32Array(14, 11, 12), PackedInt32Array(14, 12, 0, 15), PackedInt32Array(16, 15, 0), PackedInt32Array(17, 16, 0), PackedInt32Array(18, 17, 0), PackedInt32Array(19, 18, 0), PackedInt32Array(19, 0, 3), PackedInt32Array(19, 3, 13)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-41, 2, -23, 700, 1406, 698, 1363, 8)])
+vertices = PackedVector2Array(990, 464, 1056, 273, 1062, 555, 1210, 1204, 1283, 994, 1286, 1123, 1779, 724, 2217, 3, 1995, 1289, 1674, 1018, 1555, 156, 1450, 450, 1278, 663, 814, 849, 819, 724, 1281, 904, 594, 109, 602, 569, 475, 207, 461, 154, 461, 260, 422, 299, 318, 663, 714, 1018, 822, 1309, 1054, 95, 1054, 164, 369, 313, 326, 1123, -12, 1368, 316, 299, 422, 115, 277, 260, -30, 11, 263, 207, 277, 154, 316, 115, 369, 101)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2), PackedInt32Array(3, 4, 5), PackedInt32Array(6, 7, 8, 9), PackedInt32Array(10, 7, 6, 11), PackedInt32Array(11, 6, 12, 2), PackedInt32Array(13, 14, 2, 12, 15), PackedInt32Array(16, 17, 18, 19), PackedInt32Array(20, 18, 17), PackedInt32Array(21, 20, 17, 22), PackedInt32Array(23, 14, 13), PackedInt32Array(23, 13, 24), PackedInt32Array(25, 26, 16), PackedInt32Array(17, 0, 2, 14, 22), PackedInt32Array(27, 21, 22), PackedInt32Array(28, 23, 24, 29), PackedInt32Array(30, 27, 22), PackedInt32Array(16, 19, 31), PackedInt32Array(5, 9, 8, 3), PackedInt32Array(32, 30, 22, 33), PackedInt32Array(24, 3, 8), PackedInt32Array(24, 8, 29), PackedInt32Array(28, 29, 33, 22), PackedInt32Array(34, 32, 33), PackedInt32Array(35, 34, 33), PackedInt32Array(36, 35, 33), PackedInt32Array(37, 36, 33), PackedInt32Array(37, 33, 7), PackedInt32Array(31, 37, 7, 16), PackedInt32Array(25, 16, 7), PackedInt32Array(25, 7, 10)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-41, 2, -22, 1379, 2004, 1299, 2230, -7)])
 source_geometry_group_name = &"navigation_polygon_source_group"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kvjqq"]
 radius = 96.13
-
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_p6wkm"]
-vertices = PackedVector2Array(1086, 249, 986, 528, 610, 636, 604, 194)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(594, 183, 601, 650, 993, 537, 1100, 241)])
-parsed_collision_mask = 4294967040
-source_geometry_group_name = &"navigation_polygon_source_group"
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_yya0p"]
-radius = 68.0
 
 [node name="TimoTest" type="Node2D"]
 script = ExtResource("1_hakuu")
@@ -50,56 +40,51 @@ texture = ExtResource("4_rpq6d")
 position = Vector2(-3, -1)
 shape = SubResource("CircleShape2D_kvjqq")
 
-[node name="MontainLayer" type="NavigationRegion2D" parent="WaterLayer"]
-position = Vector2(-2, -75)
-navigation_polygon = SubResource("NavigationPolygon_p6wkm")
-navigation_layers = 2
+[node name="MontainLayer" parent="WaterLayer" instance=ExtResource("4_hl13g")]
 
-[node name="Lake" type="Sprite2D" parent="WaterLayer/MontainLayer"]
-position = Vector2(702, 302)
-texture = ExtResource("5_767eb")
+[node name="MontainLayer2" parent="WaterLayer" instance=ExtResource("4_hl13g")]
+position = Vector2(218, 665)
 
-[node name="Area2D" type="StaticBody2D" parent="WaterLayer/MontainLayer/Lake"]
-position = Vector2(-702, -302)
+[node name="MontainLayer4" parent="WaterLayer" instance=ExtResource("4_hl13g")]
+position = Vector2(458, -89)
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterLayer/MontainLayer/Lake/Area2D"]
-polygon = PackedVector2Array(606, 195, 614, 631, 984, 531, 1083, 253)
+[node name="MontainLayer5" parent="WaterLayer" instance=ExtResource("4_hl13g")]
+position = Vector2(-278, 479)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="WaterLayer/MontainLayer/Lake"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterLayer/MontainLayer/Lake/StaticBody2D"]
-position = Vector2(-5, 14)
-shape = SubResource("CircleShape2D_yya0p")
-
-[node name="Lake2" type="Sprite2D" parent="WaterLayer/MontainLayer"]
-position = Vector2(879, 286)
-texture = ExtResource("5_767eb")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="WaterLayer/MontainLayer/Lake2"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterLayer/MontainLayer/Lake2/StaticBody2D"]
-position = Vector2(-5, 14)
-shape = SubResource("CircleShape2D_yya0p")
-
-[node name="Lake3" type="Sprite2D" parent="WaterLayer/MontainLayer"]
-position = Vector2(694, 500)
-texture = ExtResource("5_767eb")
-
-[node name="StaticBody2D" type="StaticBody2D" parent="WaterLayer/MontainLayer/Lake3"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WaterLayer/MontainLayer/Lake3/StaticBody2D"]
-position = Vector2(-5, 14)
-shape = SubResource("CircleShape2D_yya0p")
+[node name="MontainLayer3" parent="WaterLayer" instance=ExtResource("4_hl13g")]
+position = Vector2(682, 479)
 
 [node name="Target" type="Sprite2D" parent="."]
-position = Vector2(1250, 449)
+position = Vector2(1972, 1045)
 texture = ExtResource("6_kmupe")
 
 [node name="TestPlayer" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(258, 66)
+position = Vector2(132, 678)
 target_node = NodePath("../Target")
 can_mountain = true
 
 [node name="TestPlayer2" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
 position = Vector2(145, 179)
 target_node = NodePath("../Target")
+
+[node name="TestPlayer3" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(553, 611)
+target_node = NodePath("../Target")
+
+[node name="TestPlayer6" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(277, 1123)
+target_node = NodePath("../Target")
+can_mountain = true
+
+[node name="TestPlayer7" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(333, 1213)
+target_node = NodePath("../Target")
+
+[node name="TestPlayer4" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(1041, 113)
+target_node = NodePath("../Target")
+
+[node name="TestPlayer5" parent="." node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(1041, 113)
+target_node = NodePath("../Target")
+can_mountain = true
