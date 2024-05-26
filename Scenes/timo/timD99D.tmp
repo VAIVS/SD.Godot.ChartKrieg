@@ -18,38 +18,40 @@ position_smoothing_enabled = true
 [node name="WorldBackgroundParallax" parent="." instance=ExtResource("2_qt3gr")]
 
 [node name="WorldMap" parent="." instance=ExtResource("3_125q2")]
-position = Vector2(-874, -469)
 
 [node name="Target" type="Sprite2D" parent="."]
-position = Vector2(558, 1126)
+position = Vector2(1972, 1045)
 texture = ExtResource("6_kmupe")
 
 [node name="Armies" type="Node2D" parent="."]
-position = Vector2(-942, -509)
 
 [node name="TestPlayer" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(2082, 628)
+position = Vector2(230, 207)
 target_node = NodePath("../../Target")
 can_mountain = true
 
 [node name="TestPlayer2" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(745, 937)
+position = Vector2(145, 179)
 target_node = NodePath("../../Target")
-can_mountain = true
+
+[node name="TestPlayer3" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
+position = Vector2(308, 83)
+target_node = NodePath("../../Target")
 
 [node name="TestPlayer6" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(1920, 1843)
+position = Vector2(282, 155)
 target_node = NodePath("../../Target")
 can_mountain = true
 
 [node name="TestPlayer7" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(2083, 701)
+position = Vector2(205, 274)
 target_node = NodePath("../../Target")
 
 [node name="TestPlayer4" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(702, 997)
+position = Vector2(142, 239)
 target_node = NodePath("../../Target")
 
 [node name="TestPlayer5" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(1953, 1787)
+position = Vector2(211, 118)
 target_node = NodePath("../../Target")
+can_mountain = true
