@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bjnqayhkr4u2v"]
+
+[ext_resource type="Script" path="res://Components/Map/RegionGenerator/map_region_generator.gd" id="1_wc4b7"]
+
+[node name="MapRegionGenerator" type="Node2D"]
+script = ExtResource("1_wc4b7")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]

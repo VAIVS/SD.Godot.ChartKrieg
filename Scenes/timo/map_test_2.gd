@@ -12,3 +12,7 @@ func _physics_process(delta):
 		cam.position.x -= speed * delta
 	if Input.is_action_pressed("ui_right"):
 		cam.position.x += speed * delta
+	if Input.is_action_pressed("zoom_in"):
+		cam.zoom -= Vector2(0.01,0.01)
+	if Input.is_action_pressed("zoom_out"):
+		cam.zoom += Vector2(0.01,0.01)
