@@ -37,10 +37,11 @@ zoom_out={
 [layer_names]
 
 2d_navigation/layer_1="Plain"
-2d_navigation/layer_2="Water"
-2d_navigation/layer_3="Forest"
-2d_navigation/layer_4="Moutain"
-2d_navigation/layer_5="Swamp"
+2d_navigation/layer_2="Mountain"
+2d_navigation/layer_3="Swamp"
+2d_navigation/layer_4="Forest"
+2d_navigation/layer_5="Hills"
+2d_navigation/layer_6="Water"
 
 [navigation]
 
