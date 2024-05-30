@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="UnitStats" load_steps=3 format=3 uid="uid://b7snav5p4wq8s"]
 
 [ext_resource type="Script" path="res://Data/UnitsStats/UnitStats.gd" id="1_dc7rn"]
-[ext_resource type="Texture2D" uid="uid://e82acbiq7wq1" path="res://icon.svg" id="1_exh5g"]
+[ext_resource type="Texture2D" uid="uid://bsvdg851haky3" path="res://Assets/Units/Soldier.png" id="1_kdb5e"]
 
 [resource]
 script = ExtResource("1_dc7rn")
@@ -9,4 +9,4 @@ health = 10.0
 speed = 50.0
 offense = 10.0
 defense = 10.0
-icon = ExtResource("1_exh5g")
+icon = ExtResource("1_kdb5e")
