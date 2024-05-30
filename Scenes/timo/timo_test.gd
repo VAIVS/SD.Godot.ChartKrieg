@@ -6,7 +6,7 @@ extends Node2D
 func _ready():
 	$WorldMap.world_map_ready.connect(_on_map_ready)
 
-func _physics_process(delta):
+func _process(delta):
 	if Input.is_action_pressed("ui_up"):
 		cam.position.y -= speed * delta
 	if Input.is_action_pressed("ui_down"):

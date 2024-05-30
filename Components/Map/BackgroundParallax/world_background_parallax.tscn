@@ -28,3 +28,69 @@ centered = false
 position = Vector2(1024, 1024)
 texture = ExtResource("1_3wfgg")
 centered = false
+
+[node name="BackgroundGroup2" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(2048, 0)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BackgroundGroup3" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(0, 2048)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BackgroundGroup4" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(2048, 2048)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false

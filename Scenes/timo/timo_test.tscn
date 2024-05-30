@@ -25,7 +25,6 @@ position = Vector2(558, 1126)
 texture = ExtResource("6_kmupe")
 
 [node name="Armies" type="Node2D" parent="."]
-position = Vector2(-942, -509)
 
 [node name="TestPlayer" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
 position = Vector2(2082, 628)
