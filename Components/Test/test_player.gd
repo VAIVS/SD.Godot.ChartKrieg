@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name TestPlayer
+
 @export var speed = 50
 var nav_agent: NavigationAgent2D
 @export var target_node: Node2D = null

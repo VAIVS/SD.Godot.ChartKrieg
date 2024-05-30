@@ -1,0 +1,225 @@
+[gd_scene load_steps=7 format=3 uid="uid://cq8urbp4n526n"]
+
+[ext_resource type="Script" path="res://Components/Map/TerrainCollection/terrain_setup.gd" id="1_nflub"]
+[ext_resource type="Texture2D" uid="uid://u8v2sb6ppphr" path="res://Assets/Map/background/parchmentBasic.png" id="2_04jj5"]
+[ext_resource type="Texture2D" uid="uid://dr4s4kcu8xhwk" path="res://Assets/Map/elements/rocksA.png" id="3_2rben"]
+[ext_resource type="Texture2D" uid="uid://c4erht1x4bn2l" path="res://Assets/Map/elements/rocksB.png" id="4_y4hlm"]
+[ext_resource type="Texture2D" uid="uid://eiimfgs87j4q" path="res://Assets/Map/elements/treePineLarge.png" id="5_lp34k"]
+[ext_resource type="Texture2D" uid="uid://dp6i0c428y5xi" path="res://Assets/Map/elements/rocksMountain.png" id="6_rsswv"]
+
+[node name="Mountain" type="NavigationRegion2D"]
+navigation_layers = 2
+enter_cost = 0.2
+travel_cost = 1.2
+script = ExtResource("1_nflub")
+
+[node name="TerrainBackground" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile" type="Sprite2D" parent="TerrainBackground"]
+texture = ExtResource("2_04jj5")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile2" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(1024, 0)
+texture = ExtResource("2_04jj5")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile3" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_04jj5")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile4" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(1024, 1024)
+texture = ExtResource("2_04jj5")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="TerrainOutline" type="Polygon2D" parent="."]
+scale = Vector2(1.00937, 1)
+color = Color(0.709804, 0.709804, 0.709804, 0.184314)
+polygon = PackedVector2Array(221, 185, 177, 195, 138, 277, 123, 499, 134, 671, 159, 818, 189, 917, 270, 1071, 308, 1136, 362, 1253, 413, 1288, 462.663, 1391, 502.291, 1446, 524.087, 1470, 635.047, 1532, 830.217, 1551, 999.629, 1532, 1197.77, 1510, 1303.78, 1458, 1412.76, 1394, 1584.15, 1263, 1683.22, 1189, 1763.47, 1058, 1801.12, 894, 1812.01, 649, 1807.06, 469, 1756.53, 326, 1758.52, 205, 1713.93, 150, 1567.31, 121, 1388.98, 152, 1353.31, 219, 1351.33, 331, 1370.16, 426, 1372.14, 535, 1341.43, 611, 1273.07, 728, 1155.17, 790, 1035.29, 802, 950.094, 809, 869.846, 790, 805.45, 735, 743.035, 699, 719.258, 626, 707.369, 514, 667.74, 395, 566.688, 302, 483.468, 266, 377.462, 231, 307.121, 209)
+uv = PackedVector2Array(221, 185, 177, 195, 138, 277, 123, 499, 134, 671, 159, 818, 189, 917, 270, 1071, 308, 1136, 362, 1253, 413, 1288, 462.663, 1391, 502.291, 1446, 524.087, 1470, 635.047, 1532, 830.217, 1551, 999.629, 1532, 1197.77, 1510, 1303.78, 1458, 1412.76, 1394, 1584.15, 1263, 1683.22, 1189, 1763.47, 1058, 1801.12, 894, 1756.53, 326, 1758.52, 205, 1713.93, 150, 1567.31, 121, 1388.98, 152, 1353.31, 219, 1351.33, 331, 1370.16, 426, 1372.14, 535, 1341.43, 611, 1273.07, 728, 1155.17, 790, 1035.29, 802, 950.094, 809, 869.846, 790, 743.035, 699, 719.258, 626, 707.369, 514, 667.74, 395, 566.688, 302, 483.468, 266, 377.462, 231, 307.121, 209)
+metadata/_edit_lock_ = true
+
+[node name="NavigationArea" type="Area2D" parent="TerrainOutline"]
+
+[node name="AreaNavigationCollider" type="CollisionPolygon2D" parent="TerrainOutline/NavigationArea"]
+
+[node name="TerrainGraphics" type="Node2D" parent="."]
+
+[node name="RocksA" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(248, 331)
+scale = Vector2(1.44531, 1.35156)
+texture = ExtResource("3_2rben")
+
+[node name="RocksA2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(287, 520)
+scale = Vector2(1.18359, 1.06641)
+texture = ExtResource("3_2rben")
+
+[node name="RocksA3" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1477.5, 248.5)
+scale = Vector2(1.44531, 1.35156)
+texture = ExtResource("3_2rben")
+
+[node name="RocksA4" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1468, 562)
+scale = Vector2(1.18359, 1.06641)
+texture = ExtResource("3_2rben")
+
+[node name="RocksA5" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1407.5, 692)
+scale = Vector2(1.44531, 1.35156)
+texture = ExtResource("3_2rben")
+
+[node name="RocksA6" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1398, 1005.5)
+scale = Vector2(1.18359, 1.06641)
+texture = ExtResource("3_2rben")
+
+[node name="RocksB" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(777, 1141)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(696, 1226)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB3" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(819, 1238)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB5" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(574, 1081)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB6" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(493, 1166)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB7" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(616, 1178)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB8" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1494, 1108)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB9" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1413, 1193)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB10" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1536, 1205)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB11" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1314, 1272)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB12" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1333, 1145)
+texture = ExtResource("4_y4hlm")
+
+[node name="RocksB4" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1320, 831)
+texture = ExtResource("4_y4hlm")
+
+[node name="TreePineLarge" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1135, 678)
+texture = ExtResource("5_lp34k")
+
+[node name="TreePineLarge2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(944, 653)
+texture = ExtResource("5_lp34k")
+
+[node name="RocksMountain" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(537, 476)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(330, 823)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain3" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(614, 612)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain9" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(604.5, 878.75)
+scale = Vector2(2.14844, 2.05859)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain10" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(819, 976)
+scale = Vector2(2.14844, 2.05859)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain11" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(988.75, 1150.88)
+scale = Vector2(1.80078, 1.5918)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain4" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(442, 362)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain16" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(997, 1433)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain17" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1150, 1341)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain18" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(825, 1432.5)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain5" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1618, 383)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain6" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1725, 499)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain7" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1705, 639)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain8" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1658, 238)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain12" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1548, 826.5)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain13" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1655, 942.5)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain14" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1635, 1082.5)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")
+
+[node name="RocksMountain15" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1588, 681.5)
+scale = Vector2(1.21875, 1.36719)
+texture = ExtResource("6_rsswv")

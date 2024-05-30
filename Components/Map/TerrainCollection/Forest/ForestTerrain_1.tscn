@@ -1,0 +1,266 @@
+[gd_scene load_steps=8 format=3 uid="uid://y48g4fudn1fu"]
+
+[ext_resource type="Script" path="res://Components/Map/TerrainCollection/terrain_setup.gd" id="1_ulmk6"]
+[ext_resource type="Texture2D" uid="uid://u8v2sb6ppphr" path="res://Assets/Map/background/parchmentBasic.png" id="2_q7fjh"]
+[ext_resource type="Texture2D" uid="uid://crmfd3wk2unav" path="res://Assets/Map/elements/treePines.png" id="3_ku3y8"]
+[ext_resource type="Texture2D" uid="uid://b4sq2xmwdir82" path="res://Assets/Map/elements/treePinesSmall.png" id="4_fleqo"]
+[ext_resource type="Texture2D" uid="uid://ccfh1hyu0y4gd" path="res://Assets/Map/elements/treePineTallLarge.png" id="5_d8lem"]
+[ext_resource type="Texture2D" uid="uid://h5xks0s6uc0o" path="res://Assets/Map/elements/treePineTall.png" id="6_uorhg"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cvo18"]
+outlines = Array[PackedVector2Array]([PackedVector2Array(942, 984, 932, 1014, 970, 1014)])
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="Forest" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_cvo18")
+navigation_layers = 8
+enter_cost = 0.1
+travel_cost = 1.1
+script = ExtResource("1_ulmk6")
+
+[node name="TerrainBackground" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile" type="Sprite2D" parent="TerrainBackground"]
+texture = ExtResource("2_q7fjh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile2" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(1024, 0)
+texture = ExtResource("2_q7fjh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile3" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_q7fjh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="BackgroundTile4" type="Sprite2D" parent="TerrainBackground"]
+position = Vector2(1024, 1024)
+texture = ExtResource("2_q7fjh")
+centered = false
+metadata/_edit_lock_ = true
+
+[node name="TerrainOutline" type="Polygon2D" parent="."]
+scale = Vector2(1.00937, 1)
+color = Color(0.16252, 0.367139, 0.17899, 0.184314)
+polygon = PackedVector2Array(322.974, 824, 303.159, 764, 299.197, 703, 303.159, 609, 332.881, 525, 402.231, 475, 482.479, 419, 674.678, 401, 773.75, 414, 957.033, 432, 1066.01, 360, 1230.47, 358, 1452.39, 350, 1599.02, 432, 1615.86, 439, 1667.38, 512, 1716.91, 638, 1757.53, 823, 1762.49, 1009, 1721.87, 1139, 1637.66, 1246, 1503.91, 1363, 1479.14, 1413, 1420.69, 1499, 1329.54, 1593, 1240.38, 1655, 1149.23, 1697, 978.828, 1716, 758.889, 1712, 542.913, 1679, 491.396, 1638, 492.386, 1529, 428.98, 1415, 237.772, 1368, 174.366, 1273, 129.784, 1122, 145.635, 974, 237.772, 870, 277.401, 845, 301.178, 834)
+metadata/_edit_lock_ = true
+
+[node name="NavigationArea" type="Area2D" parent="TerrainOutline"]
+
+[node name="AreaNavigationCollider" type="CollisionPolygon2D" parent="TerrainOutline/NavigationArea"]
+polygon = PackedVector2Array(955.051, 1031, 955.051, 1088, 1002.61, 1094, 990.717, 1014)
+
+[node name="TerrainGraphics" type="Node2D" parent="."]
+
+[node name="TreePines" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(455, 1001)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(469, 1135)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines3" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(563, 1047)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines4" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(592, 1168)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines5" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(346, 1079)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines6" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(548, 803)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines7" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(562, 937)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines8" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(656, 849)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines9" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(685, 970)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines10" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(439, 881)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines11" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(865, 1390)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines12" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(879, 1524)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines13" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(973, 1436)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines14" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1002, 1557)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines15" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(756, 1468)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines16" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(958, 1193)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines17" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(972, 1327)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines18" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1066, 1239)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines19" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1095, 1360)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines20" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(849, 1271)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines21" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(958, 1193)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines22" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(972, 1327)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines23" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1066, 1239)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines24" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1095, 1360)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines25" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(849, 1271)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines26" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1186, 1031)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines27" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1279, 834)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines28" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1293, 968)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines29" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1387, 880)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines30" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1416, 1001)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines31" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1170, 912)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines32" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1279, 834)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines33" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1293, 968)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines34" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1387, 880)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines35" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1416, 1001)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines36" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1170, 912)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines37" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1198, 654)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines38" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1291, 457)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines39" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1305, 591)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines40" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1399, 503)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines41" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1428, 624)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines42" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1182, 535)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines43" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1291, 457)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines44" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1305, 591)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines45" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1399, 503)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines46" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1428, 624)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePines47" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1182, 535)
+texture = ExtResource("3_ku3y8")
+
+[node name="TreePinesSmall" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(647, 1559)
+texture = ExtResource("4_fleqo")
+
+[node name="TreePineTallLarge" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1616, 853)
+texture = ExtResource("5_d8lem")
+
+[node name="TreePineTallLarge3" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(308, 1215)
+texture = ExtResource("5_d8lem")
+
+[node name="TreePineTallLarge2" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(1034, 606)
+texture = ExtResource("5_d8lem")
+
+[node name="TreePineTall" type="Sprite2D" parent="TerrainGraphics"]
+position = Vector2(943, 754)
+texture = ExtResource("6_uorhg")
