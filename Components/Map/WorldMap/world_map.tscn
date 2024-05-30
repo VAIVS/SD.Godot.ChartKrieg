@@ -19,3 +19,5 @@ script = ExtResource("2_cmbk1")
 terrain_presets = Array[PackedScene]([ExtResource("3_u7aun"), ExtResource("4_j4045")])
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Terrain"]
+
+[connection signal="input_event" from="MapOutline" to="." method="_on_map_outline_input_event"]

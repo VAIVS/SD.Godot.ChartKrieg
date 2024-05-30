@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl8tcx012hwn6"]
+
+[ext_resource type="Script" path="res://Components/Map/MovementMarker/MovementMarker.gd" id="1_tuofx"]
+[ext_resource type="Texture2D" uid="uid://c5jb1dd8ffh4i" path="res://Assets/Map/elements/navigation_s.png" id="1_y0p62"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0vww3"]
+
+[sub_resource type="Animation" id="Animation_34v6d"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l7ve3"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -22), Vector2(0, -70)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6po03"]
+_data = {
+"RESET": SubResource("Animation_34v6d"),
+"default": SubResource("Animation_l7ve3")
+}
+
+[node name="MovementMarker" type="Node2D"]
+script = ExtResource("1_tuofx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture = ExtResource("1_y0p62")
+
+[node name="Area2D" type="Area2D" parent="Sprite2D"]
+scale = Vector2(0.5, 0.5)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Area2D"]
+position = Vector2(0, 13)
+shape = SubResource("CircleShape2D_0vww3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6po03")
+}
+autoplay = "default"
+
+[connection signal="body_entered" from="Sprite2D/Area2D" to="." method="_on_area_2d_body_entered"]

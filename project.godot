@@ -34,9 +34,15 @@ zoom_out={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [layer_names]
 
+2d_physics/layer_1="armies"
 2d_navigation/layer_1="Plain"
+2d_physics/layer_2="map_controls"
 2d_navigation/layer_2="Mountain"
 2d_navigation/layer_3="Swamp"
 2d_navigation/layer_4="Forest"
