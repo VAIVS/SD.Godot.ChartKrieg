@@ -1,0 +1,84 @@
+[gd_scene load_steps=4 format=3 uid="uid://3u28tc4hr8dp"]
+
+[ext_resource type="Texture2D" uid="uid://dp6i0c428y5xi" path="res://Assets/Map/elements/rocksMountain.png" id="1_dkiyi"]
+[ext_resource type="Script" path="res://Components/Test/test_terrain.gd" id="1_nnsev"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_5x7xk"]
+vertices = PackedVector2Array(198, -43, -88, 197, -310, -220, -62, -327)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-60, -339, -325, -225, -92, 213, 213, -43)])
+source_geometry_mode = 1
+source_geometry_group_name = &"navigation_polygon_source_group"
+
+[node name="MontainLayer" type="NavigationRegion2D"]
+navigation_polygon = SubResource("NavigationPolygon_5x7xk")
+navigation_layers = 2
+enter_cost = 1.1
+travel_cost = 1.2
+script = ExtResource("1_nnsev")
+
+[node name="Area2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PackedVector2Array(-258, -267, -369, 55, 216, 124, 150, -257)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = -0.017091
+color = Color(0.627451, 0.627451, 0.627451, 0.501961)
+polygon = PackedVector2Array(-353.521, -31.0463, -329.055, -116.641, -325.235, -164.582, -316.621, -200.44, -311.28, -220.352, -270.585, -260.662, -216.977, -295.751, -112.36, -330.969, -91.329, -332.609, 3.62297, -328.986, 125.007, -291.906, 153.695, -273.413, 202.107, -238.581, 218.284, -190.297, 230.462, -142.082, 234.402, -80.0057, 234.786, -43.9939, 236.923, 65.0586, 233.342, 99.0023, 220.643, 139.791, 195.963, 179.375, 170.471, 207.944, 135.656, 255.356, 96.9264, 297.7, 43.0113, 350.786, 1.33365, 390.08, -74.4586, 435.791, -156.045, 469.402, -239.17, 475.982, -317.227, 478.648, -428.142, 472.752, -581.812, 452.123, -714.143, 411.855, -769.776, 389.901, -769.024, 345.908, -742.413, 310.357, -677.114, 293.471, -605.125, 294.701, -547.236, 301.692, -481.468, 315.818, -381.636, 326.525, -217.147, 299.333, -170.385, 255.125, -157.703, 215.336, -163.343, 194.237, -180.726, 157.934, -198.398, 138.63, -272.857, 106.352, -310.715, 97.7041, -342.454, 82.1594, -376.663, 35.568, -378.27, 12.5371, -363.673, -22.2185)
+uv = PackedVector2Array(-353.521, -31.0463, -329.055, -116.641, -325.235, -164.582, -316.621, -200.44, -311.28, -220.352, -270.585, -260.662, -216.977, -295.751, -112.36, -330.969, -91.329, -332.609, 3.62297, -328.986, 125.007, -291.906, 153.695, -273.413, 202.107, -238.581, 218.284, -190.297, 230.462, -142.082, 234.402, -80.0057, 234.786, -43.9939, 236.923, 65.0586, 233.342, 99.0023, 220.643, 139.791, 195.963, 179.375, 170.471, 207.944, 135.656, 255.356, 96.9264, 297.7, 43.0113, 350.786, 1.33365, 390.08, -74.4586, 435.791, -156.045, 469.402, -239.17, 475.982, -317.227, 478.648, -428.142, 472.752, -581.812, 452.123, -714.143, 411.855, -769.776, 389.901, -769.024, 345.908, -742.413, 310.357, -677.114, 293.471, -605.125, 294.701, -547.236, 301.692, -481.468, 315.818, -381.636, 326.525, -217.147, 299.333, -170.385, 255.125, -157.703, 215.336, -163.343, 194.237, -180.726, 157.934, -198.398, 138.63, -272.857, 106.352, -310.715, 97.7041, -342.454, 82.1594, -376.663, 35.568, -378.27, 12.5371, -363.673, -22.2185)
+
+[node name="Lake" type="Sprite2D" parent="."]
+position = Vector2(-255, -206)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake10" type="Sprite2D" parent="."]
+position = Vector2(-120, -256)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake11" type="Sprite2D" parent="."]
+position = Vector2(129, -132)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake12" type="Sprite2D" parent="."]
+position = Vector2(-60, -122)
+scale = Vector2(1.60938, 1.57813)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake13" type="Sprite2D" parent="."]
+position = Vector2(108.5, 91.5)
+scale = Vector2(1.44531, 1.44531)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake15" type="Sprite2D" parent="."]
+position = Vector2(-46, 239)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake19" type="Sprite2D" parent="."]
+position = Vector2(-84, 90)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake16" type="Sprite2D" parent="."]
+position = Vector2(-669, 353)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake4" type="Sprite2D" parent="."]
+position = Vector2(33, -273)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake5" type="Sprite2D" parent="."]
+position = Vector2(-522, 375)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake6" type="Sprite2D" parent="."]
+position = Vector2(-162, 357)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake3" type="Sprite2D" parent="."]
+position = Vector2(-249, -53)
+scale = Vector2(1.63672, 1.60156)
+texture = ExtResource("1_dkiyi")
+
+[node name="Lake9" type="Sprite2D" parent="."]
+position = Vector2(-361, 393)
+texture = ExtResource("1_dkiyi")

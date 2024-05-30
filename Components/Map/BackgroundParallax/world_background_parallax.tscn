@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://djj3ckj7tvqrd"]
+
+[ext_resource type="Texture2D" uid="uid://u8v2sb6ppphr" path="res://Assets/Map/background/parchmentBasic.png" id="1_3wfgg"]
+[ext_resource type="Texture2D" uid="uid://bbqlql5d0tk5l" path="res://Assets/Map/background/parchmentFoldedCrinkled.png" id="2_vp0bg"]
+
+[node name="WorldBackgroundParallax" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(2048, 2048)
+
+[node name="BackgroundGroup" type="Node2D" parent="ParallaxLayer"]
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BackgroundGroup2" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(2048, 0)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup2"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BackgroundGroup3" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(0, 2048)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup3"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BackgroundGroup4" type="Node2D" parent="ParallaxLayer"]
+position = Vector2(2048, 2048)
+
+[node name="BgTile1" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile2" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(1024, 0)
+texture = ExtResource("1_3wfgg")
+centered = false
+
+[node name="BgTile3" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(0, 1024)
+texture = ExtResource("2_vp0bg")
+centered = false
+
+[node name="BgTile4" type="Sprite2D" parent="ParallaxLayer/BackgroundGroup4"]
+position = Vector2(1024, 1024)
+texture = ExtResource("1_3wfgg")
+centered = false
