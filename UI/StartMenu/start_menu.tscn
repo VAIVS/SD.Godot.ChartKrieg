@@ -1,0 +1,79 @@
+[gd_scene load_steps=4 format=3 uid="uid://c3udyommk6qyc"]
+
+[ext_resource type="Script" path="res://UI/StartMenu/start_menu.gd" id="1_2s3vj"]
+[ext_resource type="PackedScene" uid="uid://757ot8gdw3uv" path="res://Scenes/salva/salva_test.tscn" id="2_7li2n"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1wifi"]
+font_size = 48
+
+[node name="StartMenu" type="CanvasLayer"]
+script = ExtResource("1_2s3vj")
+main_scene = ExtResource("2_7li2n")
+
+[node name="StartMenu" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 300
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 300
+theme_override_constants/margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="StartMenu/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="StartMenu/MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/MarginContainer/Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Krieg Chart"
+label_settings = SubResource("LabelSettings_1wifi")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="spacer" type="Control" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="StartButton" type="Button" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="QuitButton" type="Button" parent="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartMenu/MarginContainer/Panel/MarginContainer/VBoxContainer/VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
