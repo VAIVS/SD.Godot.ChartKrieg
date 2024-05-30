@@ -22,6 +22,7 @@ texture = ExtResource("1_44w43")
 [node name="Navigation" type="Node2D" parent="."]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="Navigation"]
+navigation_layers = 253
 debug_enabled = true
 
 [node name="RecalculateTimer" type="Timer" parent="Navigation"]
