@@ -1,0 +1,104 @@
+[gd_scene load_steps=6 format=3 uid="uid://bqf2ajqoxnrn0"]
+
+[ext_resource type="PackedScene" uid="uid://vacta1kkdrr8" path="res://Components/Map/WorldMap/world_map.tscn" id="1_1ohkq"]
+[ext_resource type="Script" path="res://Scenes/TestMapHelper.gd" id="1_hgpsn"]
+[ext_resource type="PackedScene" uid="uid://driafb1iw3m77" path="res://Components/Test/test_camera.tscn" id="1_x1no5"]
+[ext_resource type="PackedScene" uid="uid://gjipc6fyqt0p" path="res://Components/Test/test_player.tscn" id="2_xs87e"]
+[ext_resource type="Texture2D" uid="uid://bkr0564cyi8n8" path="res://Assets/Map/elements/bush.png" id="3_um6kt"]
+
+[node name="MapTestScene" type="Node2D"]
+
+[node name="TestMapHelper" type="Node" parent="." node_paths=PackedStringArray("map_node", "army_group")]
+script = ExtResource("1_hgpsn")
+map_node = NodePath("../WorldMap")
+army_group = NodePath("../Armies")
+
+[node name="test_camera" parent="." instance=ExtResource("1_x1no5")]
+speed = 500
+
+[node name="WorldMap" parent="." instance=ExtResource("1_1ohkq")]
+metadata/_edit_lock_ = true
+
+[node name="Armies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="TestPlayer" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(660, 150)
+can_mountain = true
+
+[node name="TestPlayer2" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(606, 570)
+
+[node name="TestPlayer3" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(6112, 1190)
+can_mountain = true
+
+[node name="TestPlayer4" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(6058, 1610)
+
+[node name="TestPlayer5" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(2910, 3289)
+can_mountain = true
+
+[node name="TestPlayer6" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(2856, 3709)
+
+[node name="TestPlayer7" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(6583, 5664)
+can_mountain = true
+
+[node name="TestPlayer8" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(6529, 6084)
+
+[node name="TestPlayer9" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(1457, 5684)
+can_mountain = true
+
+[node name="TestPlayer10" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(1403, 6104)
+
+[node name="TestPlayer11" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(5958, 2972)
+can_mountain = true
+
+[node name="TestPlayer12" parent="Armies" instance=ExtResource("2_xs87e")]
+position = Vector2(5904, 3392)
+
+[node name="Targets" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Target" type="Sprite2D" parent="Targets"]
+position = Vector2(7453, 7528)
+texture = ExtResource("3_um6kt")
+
+[node name="Target2" type="Sprite2D" parent="Targets"]
+position = Vector2(4027, 7045)
+texture = ExtResource("3_um6kt")
+
+[node name="Target3" type="Sprite2D" parent="Targets"]
+position = Vector2(1162, 7274)
+texture = ExtResource("3_um6kt")
+
+[node name="Target4" type="Sprite2D" parent="Targets"]
+position = Vector2(762, 6156)
+texture = ExtResource("3_um6kt")
+
+[node name="Target5" type="Sprite2D" parent="Targets"]
+position = Vector2(4506, 4833)
+texture = ExtResource("3_um6kt")
+
+[node name="Target6" type="Sprite2D" parent="Targets"]
+position = Vector2(2590, 3070)
+texture = ExtResource("3_um6kt")
+
+[node name="Target7" type="Sprite2D" parent="Targets"]
+position = Vector2(6137, 1200)
+texture = ExtResource("3_um6kt")
+
+[node name="Target8" type="Sprite2D" parent="Targets"]
+position = Vector2(3237, 1245)
+texture = ExtResource("3_um6kt")
+
+[node name="Target9" type="Sprite2D" parent="Targets"]
+position = Vector2(1288, 616)
+texture = ExtResource("3_um6kt")

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Sd.godot.chart Krieg"
-run/main_scene="res://Scenes/timo/timo_test.tscn"
+run/main_scene="res://Scenes/MapTest/map_test_scene.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -37,10 +37,11 @@ zoom_out={
 [layer_names]
 
 2d_navigation/layer_1="Plain"
-2d_navigation/layer_2="Water"
-2d_navigation/layer_3="Forest"
-2d_navigation/layer_4="Moutain"
-2d_navigation/layer_5="Swamp"
+2d_navigation/layer_2="Mountain"
+2d_navigation/layer_3="Swamp"
+2d_navigation/layer_4="Forest"
+2d_navigation/layer_5="Hills"
+2d_navigation/layer_6="Water"
 
 [navigation]
 
