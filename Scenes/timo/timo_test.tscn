@@ -27,28 +27,28 @@ texture = ExtResource("6_kmupe")
 [node name="Armies" type="Node2D" parent="."]
 
 [node name="TestPlayer" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(2082, 628)
+position = Vector2(660, 150)
 target_node = NodePath("../../Target")
 can_mountain = true
 
 [node name="TestPlayer2" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(745, 937)
+position = Vector2(89, 239)
 target_node = NodePath("../../Target")
 can_mountain = true
 
 [node name="TestPlayer6" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(1920, 1843)
+position = Vector2(1193, 1077)
 target_node = NodePath("../../Target")
 can_mountain = true
 
 [node name="TestPlayer7" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(2083, 701)
+position = Vector2(757, 156)
 target_node = NodePath("../../Target")
 
 [node name="TestPlayer4" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(702, 997)
+position = Vector2(-57, 334)
 target_node = NodePath("../../Target")
 
 [node name="TestPlayer5" parent="Armies" node_paths=PackedStringArray("target_node") instance=ExtResource("3_tu4wp")]
-position = Vector2(1953, 1787)
+position = Vector2(1205, 975)
 target_node = NodePath("../../Target")
