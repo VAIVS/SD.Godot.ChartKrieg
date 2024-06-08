@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyvte65a1ass5"]
+[gd_scene load_steps=8 format=3 uid="uid://dyvte65a1ass5"]
 
 [ext_resource type="PackedScene" uid="uid://driafb1iw3m77" path="res://Components/Test/test_camera.tscn" id="1_2uuqq"]
 [ext_resource type="Script" path="res://Scenes/salva/salva_test.gd" id="1_qs8e2"]
@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://gjipc6fyqt0p" path="res://Components/Test/test_player.tscn" id="3_f56qa"]
 [ext_resource type="PackedScene" uid="uid://bjk64vjmrv2yj" path="res://UI/ArmyMenu/army_menu.tscn" id="5_tm571"]
 [ext_resource type="PackedScene" uid="uid://dxp3f2rd243id" path="res://GameSystems/ArmySelectionManager/army_selection_manager.tscn" id="8_6brl8"]
-[ext_resource type="PackedScene" uid="uid://dimtad8pes5ld" path="res://GameSystems/GameStateManager/game_state_manager.tscn" id="8_tjtcg"]
 
 [node name="salva_test" type="Node2D"]
 script = ExtResource("1_qs8e2")
@@ -36,10 +35,8 @@ visible = false
 
 [node name="Systens" type="Node" parent="."]
 
-[node name="GameStateManager" parent="Systens" instance=ExtResource("8_tjtcg")]
-
 [node name="ArmySelectionManager" parent="Systens" node_paths=PackedStringArray("game_state_manager") instance=ExtResource("8_6brl8")]
-game_state_manager = NodePath("../GameStateManager")
+game_state_manager = NodePath("../..")
 
 [connection signal="sig_point_touched" from="WorldMap" to="." method="_on_world_map_sig_point_touched"]
 [connection signal="sig_army_selected" from="Armies/TestPlayerPlain" to="." method="_on_sig_army_selected"]
