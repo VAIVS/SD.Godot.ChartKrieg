@@ -39,5 +39,3 @@ visible = false
 game_state_manager = NodePath("../..")
 
 [connection signal="sig_point_touched" from="WorldMap" to="." method="_on_world_map_sig_point_touched"]
-[connection signal="sig_army_selected" from="Armies/TestPlayerPlain" to="." method="_on_sig_army_selected"]
-[connection signal="sig_army_selected" from="Armies/TestPlayerMountain" to="." method="_on_sig_army_selected"]

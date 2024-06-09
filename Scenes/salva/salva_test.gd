@@ -7,13 +7,6 @@ enum game_states {
 	ARMY_MENU
 }
 
-enum game_event_types {
-	SELECTED_SINGLE_ARMY,
-	SELECTED_MULTIPLE_ARMIES,
-	UNSELECTED_SINGLE_ARMY,
-	CLICKED_ON_MAP
-}
-
 @onready var world_map: WorldMapLogic = $WorldMap
 @onready var armies: Node2D = $Armies
 @onready var army_selection_manager: SelectionManager = $Systens/ArmySelectionManager
@@ -51,44 +44,68 @@ func _on_map_ready() -> void:
 		child.start_navigation()
 	pass
 
-
-
-	
-
-
 func _on_world_map_sig_point_touched(pos: Vector2) -> void:
-	queue_game_state_event(GameStateEvent.new(game_event_types.CLICKED_ON_MAP, pos))
+	queue_game_state_event(GameStateClickedOnMapEvent.new(pos))
 	
 
 func queue_game_state_event(queueItem: GameStateEvent):
 	queue.append(queueItem)
 
 func process_game_event(game_event: GameStateEvent) -> void:
+	# refactor this in a structure which can directly access the correct resolve-function by game state and event type
+	# Maybe a dictionary of some sort?
 	if current_state == game_states.MAPIDLE:
-		if game_event.game_event_type == game_event_types.SELECTED_SINGLE_ARMY:
+		if game_event is GameStateSelectArmyEvent:
 			pass 
-		elif game_event.game_event_type == game_event_types.SELECTED_MULTIPLE_ARMIES:
+		elif game_event is GameStateSelectMultipleArmiesEvent:
 			pass 
-		elif game_event.game_event_type == game_event_types.UNSELECTED_SINGLE_ARMY:
+		elif game_event is GameStateUnselectArmyEvent:
 			pass 
-		elif game_event.game_event_type == game_event_types.CLICKED_ON_MAP:
-			resolve_mapidle_clicked_on_map(game_event.object)
+		elif game_event is GameStateClickedOnMapEvent:
+			resolve_mapidle_clicked_on_map(game_event)
 
-func resolve_mapidle_clicked_on_map(pos: Vector2) -> void:
+func resolve_mapidle_clicked_on_map(event: GameStateClickedOnMapEvent) -> void:
 	var selection : Array = army_selection_manager.get_selection()
-	var marker : MovementMarker = movement_marker_scene.instantiate() as MovementMarker
-	marker.global_position = pos
-	for army: TestPlayer in selection:
-		army.target_node = marker
-		army.start_navigation()
-	set_new_marker(marker)
+	if selection.size() > 0:
+		var marker : MovementMarker = movement_marker_scene.instantiate() as MovementMarker
+		marker.global_position = event.clicked_position
+		for army: TestPlayer in selection:
+			army.target_node = marker
+			army.start_navigation()
+		set_new_marker(marker)
 
 class GameStateEvent:
-	
-	var game_event_type: game_event_types
 	var object
-	
-	func _init(et: game_event_types, o):
-		game_event_type = et
+	func _init(o):
 		object = o
+		
+class GameStateClickedOnMapEvent extends GameStateEvent:
+	func _init(o):
+		super(o)
+	var clicked_position: Vector2:
+		get:
+			return object as Vector2
+			
+class GameStateSelectArmyEvent extends GameStateEvent:
+	func _init(o):
+		super(o)
+	var selected_army: TestPlayer:
+		get:
+			return object as TestPlayer
+
+class GameStateUnselectArmyEvent extends GameStateEvent:
+	func _init(o):
+		super(o)
+	var selected_army: TestPlayer:
+		get:
+			return object as TestPlayer
+			
+class GameStateSelectMultipleArmiesEvent extends GameStateEvent:
+	func _init(o):
+		super(o)
+	var selected_army: Array[TestPlayer]:
+		get:
+			var res : Array[TestPlayer] = []
+			res.append_array(object)
+			return res as Array[TestPlayer]
 

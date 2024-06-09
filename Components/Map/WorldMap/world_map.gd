@@ -52,6 +52,7 @@ func on_baking_done() -> void:
 func _on_map_outline_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventScreenTouch:
 		if event.pressed == false:
+			get_viewport().set_input_as_handled()
 			sig_point_touched.emit(event.position)
 			
 			
