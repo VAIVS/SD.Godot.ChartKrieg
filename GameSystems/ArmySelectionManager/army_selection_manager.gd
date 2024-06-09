@@ -8,8 +8,22 @@ var cursor_highlits_dic = {
 	
 }
 
-func get_selection() -> Array:
-	return cursor_highlits_dic.keys()
+func get_selection() -> Array[TestPlayer]:
+	var selection = cursor_highlits_dic.keys()
+	var res : Array[TestPlayer] = []
+	res.append_array(selection)
+	return res
+
+func clear_selection() -> Array[TestPlayer]:
+	var res : Array[TestPlayer] = []
+	var armies = cursor_highlits_dic.keys()
+	for army: TestPlayer in armies:
+		cursor_highlits_dic[army].queue_free()
+		cursor_highlits_dic.erase(army)
+		game_state_manager.queue_game_state_event(GameStateManager.GameStateUnselectArmyEvent.new(army))
+	res.append_array(armies)
+	return res
+		
 
 func handle_signal_on_army_selected(army: TestPlayer):
 	#In future, further modularize this

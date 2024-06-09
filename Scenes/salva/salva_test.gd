@@ -3,7 +3,6 @@ class_name GameStateManager
 
 enum game_states {
 	MAPIDLE,
-	ARMY_ACTIONS,
 	ARMY_MENU
 }
 
@@ -12,6 +11,7 @@ enum game_states {
 @onready var army_selection_manager: SelectionManager = $Systens/ArmySelectionManager
 @onready var queue: Array[GameStateEvent] = [];
 @onready var current_state: game_states = game_states.MAPIDLE
+@onready var army_menu: ArmyMenu = $UI/ArmyMenu
 
 
 @export var movement_marker_scene: PackedScene
@@ -23,11 +23,29 @@ func _ready():
 	#In the future this will be done by the system that spawns the armies.
 	for army: TestPlayer in armies.get_children():
 		army.sig_army_selected.connect(army_selection_manager.handle_signal_on_army_selected)
+		
+	
+	armies.get_children()[0].units.append(Soldier.new())
+	armies.get_children()[0].units[0].count = 2
+	armies.get_children()[0].captain = Captain_Arragorn.new()
+	
+	armies.get_children()[1].units.append(Scout.new())
+	armies.get_children()[1].units[0].count = 3
+	armies.get_children()[1].captain = Captain_Shady.new()
+	
 
 func _process(_delta: float) -> void:
+	if Input.is_action_just_pressed("press_a"):
+		queue_game_state_event(GameStatePressAEvent.new())
+	elif Input.is_action_just_pressed("press_x"):
+		queue_game_state_event(GameStatePressXEvent.new())
+	elif Input.is_action_just_pressed("press_esc"):
+		queue_game_state_event(GameStatePressESCEvent.new())
+	
 	var gameEvent: GameStateEvent = queue.pop_front()
 	if gameEvent:
 		process_game_event(gameEvent)
+	
 
 #Todo Move the handling of map controls into the WorlMap
 func set_new_marker(marker: MovementMarker) -> void:
@@ -55,14 +73,19 @@ func process_game_event(game_event: GameStateEvent) -> void:
 	# refactor this in a structure which can directly access the correct resolve-function by game state and event type
 	# Maybe a dictionary of some sort?
 	if current_state == game_states.MAPIDLE:
-		if game_event is GameStateSelectArmyEvent:
-			pass 
-		elif game_event is GameStateSelectMultipleArmiesEvent:
-			pass 
-		elif game_event is GameStateUnselectArmyEvent:
-			pass 
-		elif game_event is GameStateClickedOnMapEvent:
+		if game_event is GameStateClickedOnMapEvent:
 			resolve_mapidle_clicked_on_map(game_event)
+		elif game_event is GameStatePressAEvent:
+			resolve_mapidle_pressed_a()
+		elif game_event is GameStatePressXEvent:
+			resolve_mapidle_pressed_x()
+	elif current_state == game_states.ARMY_MENU:
+		if game_event is GameStatePressESCEvent:
+			resolve_armymenu_pressed_ESC()
+		if game_event is GameStatePressAEvent:
+			resolve_armymenu_pressed_ESC()
+		
+		
 
 func resolve_mapidle_clicked_on_map(event: GameStateClickedOnMapEvent) -> void:
 	var selection : Array = army_selection_manager.get_selection()
@@ -73,6 +96,21 @@ func resolve_mapidle_clicked_on_map(event: GameStateClickedOnMapEvent) -> void:
 			army.target_node = marker
 			army.start_navigation()
 		set_new_marker(marker)
+
+func resolve_mapidle_pressed_a() -> void:
+	var selection : Array[TestPlayer]= army_selection_manager.get_selection()
+	if selection.size() == 1:
+		army_menu.display_menu(selection[0])
+		current_state = game_states.ARMY_MENU
+
+func resolve_mapidle_pressed_x() -> void:
+	army_selection_manager.clear_selection()
+
+func resolve_armymenu_pressed_ESC() -> void:
+	army_menu.visible = false
+	current_state = game_states.MAPIDLE
+
+
 
 class GameStateEvent:
 	var object
@@ -108,4 +146,18 @@ class GameStateSelectMultipleArmiesEvent extends GameStateEvent:
 			var res : Array[TestPlayer] = []
 			res.append_array(object)
 			return res as Array[TestPlayer]
+
+class GameStatePressAEvent extends GameStateEvent:
+	func _init():
+		super(null)
+
+class GameStatePressXEvent extends GameStateEvent:
+	func _init():
+		super(null)
+
+class GameStatePressESCEvent extends GameStateEvent:
+	func _init():
+		super(null)
+
+
 

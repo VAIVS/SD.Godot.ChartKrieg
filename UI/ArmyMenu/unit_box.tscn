@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3f73c4ssu7yx"]
+
+[ext_resource type="Script" path="res://UI/ArmyMenu/unit_box.gd" id="1_ex2ny"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_majtp"]
+font_size = 24
+
+[node name="UnitBox" type="HBoxContainer"]
+script = ExtResource("1_ex2ny")
+
+[node name="UnitIcon" type="TextureRect" parent="."]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LabelUnitName" type="Label" parent="."]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Scout"
+
+[node name="Spacer2" type="Control" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="LabelAmount" type="Label" parent="."]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+text = "2"
+label_settings = SubResource("LabelSettings_majtp")

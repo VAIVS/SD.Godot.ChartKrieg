@@ -1,14 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bjk64vjmrv2yj"]
+[gd_scene load_steps=4 format=3 uid="uid://bjk64vjmrv2yj"]
 
-[ext_resource type="Texture2D" uid="uid://btfcltcyxju5d" path="res://Assets/Test/test_character.png" id="1_w6ifk"]
-[ext_resource type="Texture2D" uid="uid://c0itvsvatndx2" path="res://Assets/Units/Scout.png" id="2_jje2w"]
-[ext_resource type="Texture2D" uid="uid://bsvdg851haky3" path="res://Assets/Units/Soldier.png" id="3_lukix"]
+[ext_resource type="Script" path="res://UI/ArmyMenu/army_menu.gd" id="1_hacue"]
+[ext_resource type="PackedScene" uid="uid://b3f73c4ssu7yx" path="res://UI/ArmyMenu/unit_box.tscn" id="3_dxt2y"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8et4j"]
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_majtp"]
-font_size = 24
 
 [node name="ArmyMenu" type="Control"]
 layout_mode = 3
@@ -17,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_hacue")
+unit_box_scene = ExtResource("3_dxt2y")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -45,14 +43,13 @@ layout_mode = 2
 [node name="CaptainIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
-texture = ExtResource("1_w6ifk")
 
 [node name="LabelCaptainName" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
 layout_mode = 2
 text = "Captain Shady"
 label_settings = SubResource("LabelSettings_8et4j")
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/Panel"]
+[node name="UnitVBox" type="VBoxContainer" parent="MarginContainer/Panel"]
 layout_mode = 1
 anchors_preset = 13
 anchor_left = 0.5
@@ -62,55 +59,3 @@ offset_left = -151.5
 offset_right = 158.5
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer2"]
-layout_mode = 2
-
-[node name="UnitIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("2_jje2w")
-
-[node name="Spacer" type="Control" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="LabelUnitName" type="Label" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-text = "Scout"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="LabelAmount" type="Label" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-text = "2"
-label_settings = SubResource("LabelSettings_majtp")
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/Panel/VBoxContainer2"]
-layout_mode = 2
-
-[node name="UnitIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer2"]
-layout_mode = 2
-texture = ExtResource("3_lukix")
-
-[node name="Spacer" type="Control" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="LabelUnitName" type="Label" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(150, 0)
-layout_mode = 2
-text = "Soldier"
-
-[node name="Spacer2" type="Control" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(30, 0)
-layout_mode = 2
-
-[node name="LabelAmount" type="Label" parent="MarginContainer/Panel/VBoxContainer2/HBoxContainer2"]
-custom_minimum_size = Vector2(20, 0)
-layout_mode = 2
-text = "3"
-label_settings = SubResource("LabelSettings_majtp")
