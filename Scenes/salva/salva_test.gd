@@ -7,6 +7,16 @@ enum game_states {
 	ARMY_MENU
 }
 
+# the lower the layer the higher the priority
+enum game_event_layers{
+	LAYER0 = 0,
+	LAYER1 = 1,
+	LAYER2 = 2,
+	LAYER3 = 3,
+	LAYER4 = 4,
+	LAYER5 = 5
+}
+
 @onready var world_map: WorldMapLogic = $WorldMap
 @onready var armies: Node2D = $Armies
 @onready var army_selection_manager: SelectionManager = $Systens/ArmySelectionManager
@@ -43,9 +53,7 @@ func _process(_delta: float) -> void:
 	elif Input.is_action_just_pressed("press_esc"):
 		queue_game_state_event(GameStatePressESCEvent.new())
 	
-	var gameEvent: GameStateEvent = queue.pop_front()
-	if gameEvent:
-		process_game_event(gameEvent)
+	handle_game_event_queue()
 	
 
 #Todo Move the handling of map controls into the WorlMap
@@ -58,11 +66,7 @@ func set_new_marker(marker: MovementMarker) -> void:
 		
 
 func _on_map_ready() -> void:
-	#Update the region with the updated navigation mesh.
-	#for child in $Armies.get_children():
-		#child.start_navigation()
 	current_state = game_states.MAPIDLE
-	print("Loading finished")
 
 func _on_world_map_sig_point_touched(pos: Vector2) -> void:
 	queue_game_state_event(GameStateClickedOnMapEvent.new(pos))
@@ -70,6 +74,21 @@ func _on_world_map_sig_point_touched(pos: Vector2) -> void:
 
 func queue_game_state_event(queueItem: GameStateEvent):
 	queue.append(queueItem)
+
+func handle_game_event_queue() -> void:
+	var gameEvent: GameStateEvent = null
+	var highes_prio : int = 999
+	for queueItem: GameStateEvent in queue:
+		var current_prio = int(queueItem.layer)
+		if current_prio < highes_prio:
+			highes_prio = current_prio
+			gameEvent = queueItem
+	
+	# consider keeping only the items which share the highes prio, to ensure a proper sequencing.
+	# currently it has no negative impact as only manual player inputs are queued.
+	queue.clear()
+	if gameEvent:
+		process_game_event(gameEvent)
 
 func process_game_event(game_event: GameStateEvent) -> void:
 	# refactor this in a structure which can directly access the correct resolve-function by game state and event type
@@ -116,33 +135,35 @@ func resolve_armymenu_pressed_ESC() -> void:
 
 class GameStateEvent:
 	var object
-	func _init(o):
+	var layer: game_event_layers
+	func _init(o, l: game_event_layers):
 		object = o
+		layer = l
 		
 class GameStateClickedOnMapEvent extends GameStateEvent:
 	func _init(o):
-		super(o)
+		super(o, game_event_layers.LAYER1)
 	var clicked_position: Vector2:
 		get:
 			return object as Vector2
 			
 class GameStateSelectArmyEvent extends GameStateEvent:
 	func _init(o):
-		super(o)
+		super(o, game_event_layers.LAYER0)
 	var selected_army: TestPlayer:
 		get:
 			return object as TestPlayer
 
 class GameStateUnselectArmyEvent extends GameStateEvent:
 	func _init(o):
-		super(o)
+		super(o, game_event_layers.LAYER0)
 	var selected_army: TestPlayer:
 		get:
 			return object as TestPlayer
 			
 class GameStateSelectMultipleArmiesEvent extends GameStateEvent:
 	func _init(o):
-		super(o)
+		super(o, game_event_layers.LAYER0)
 	var selected_army: Array[TestPlayer]:
 		get:
 			var res : Array[TestPlayer] = []
@@ -151,15 +172,15 @@ class GameStateSelectMultipleArmiesEvent extends GameStateEvent:
 
 class GameStatePressAEvent extends GameStateEvent:
 	func _init():
-		super(null)
+		super(null, game_event_layers.LAYER0)
 
 class GameStatePressXEvent extends GameStateEvent:
 	func _init():
-		super(null)
+		super(null, game_event_layers.LAYER0)
 
 class GameStatePressESCEvent extends GameStateEvent:
 	func _init():
-		super(null)
+		super(null, game_event_layers.LAYER0)
 
 
 
