@@ -2,6 +2,7 @@ extends Node2D
 class_name GameStateManager
 
 enum game_states {
+	LOADING,
 	MAPIDLE,
 	ARMY_MENU
 }
@@ -10,7 +11,7 @@ enum game_states {
 @onready var armies: Node2D = $Armies
 @onready var army_selection_manager: SelectionManager = $Systens/ArmySelectionManager
 @onready var queue: Array[GameStateEvent] = [];
-@onready var current_state: game_states = game_states.MAPIDLE
+@onready var current_state: game_states = game_states.LOADING
 @onready var army_menu: ArmyMenu = $UI/ArmyMenu
 
 
@@ -58,9 +59,10 @@ func set_new_marker(marker: MovementMarker) -> void:
 
 func _on_map_ready() -> void:
 	#Update the region with the updated navigation mesh.
-	for child in $Armies.get_children():
-		child.start_navigation()
-	pass
+	#for child in $Armies.get_children():
+		#child.start_navigation()
+	current_state = game_states.MAPIDLE
+	print("Loading finished")
 
 func _on_world_map_sig_point_touched(pos: Vector2) -> void:
 	queue_game_state_event(GameStateClickedOnMapEvent.new(pos))
