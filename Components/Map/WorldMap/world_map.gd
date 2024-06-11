@@ -14,6 +14,10 @@ var world_outline: PackedVector2Array
 
 signal world_map_ready
 
+# Explicetly used for a single touch.
+# Touches which last multiple seconds still need to be implemented and defined.
+signal sig_point_touched(pos: Vector2)
+
 func _ready():
 	parent_node = self
 	navigation_mesh = NavigationPolygon.new()
@@ -43,3 +47,11 @@ func on_baking_done() -> void:
 	parent_node.navigation_polygon = navigation_mesh
 	world_map_ready.emit()
 	
+
+
+func _on_map_outline_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
+	if event is InputEventScreenTouch:
+		if event.pressed == false:
+			sig_point_touched.emit(event.position)
+			
+			

@@ -1,0 +1,61 @@
+[gd_scene load_steps=4 format=3 uid="uid://bjk64vjmrv2yj"]
+
+[ext_resource type="Script" path="res://UI/ArmyMenu/army_menu.gd" id="1_hacue"]
+[ext_resource type="PackedScene" uid="uid://b3f73c4ssu7yx" path="res://UI/ArmyMenu/unit_box.tscn" id="3_dxt2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8et4j"]
+font_size = 32
+
+[node name="ArmyMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_hacue")
+unit_box_scene = ExtResource("3_dxt2y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="Panel" type="Panel" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 2
+offset_right = 222.0
+offset_bottom = 584.0
+grow_vertical = 2
+
+[node name="BoxContainer" type="BoxContainer" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+
+[node name="CaptainIcon" type="TextureRect" parent="MarginContainer/Panel/VBoxContainer/BoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+
+[node name="LabelCaptainName" type="Label" parent="MarginContainer/Panel/VBoxContainer"]
+layout_mode = 2
+text = "Captain Shady"
+label_settings = SubResource("LabelSettings_8et4j")
+
+[node name="UnitVBox" type="VBoxContainer" parent="MarginContainer/Panel"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -151.5
+offset_right = 158.5
+grow_horizontal = 2
+grow_vertical = 2

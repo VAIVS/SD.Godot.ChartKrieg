@@ -1,14 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://gjipc6fyqt0p"]
+[gd_scene load_steps=3 format=3 uid="uid://gjipc6fyqt0p"]
 
-[ext_resource type="Texture2D" uid="uid://btfcltcyxju5d" path="res://Assets/Test/test_character.png" id="1_44w43"]
 [ext_resource type="Script" path="res://Components/Test/test_player.gd" id="1_ivlxo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_vhppw"]
 radius = 24.0
 
 [node name="TestPlayer" type="CharacterBody2D"]
-collision_layer = 0
-collision_mask = 0
+collision_mask = 2
+input_pickable = true
 motion_mode = 1
 wall_min_slide_angle = 0.0
 script = ExtResource("1_ivlxo")
@@ -17,7 +16,6 @@ script = ExtResource("1_ivlxo")
 shape = SubResource("CircleShape2D_vhppw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_44w43")
 
 [node name="Navigation" type="Node2D" parent="."]
 
@@ -28,3 +26,5 @@ debug_enabled = true
 [node name="RecalculateTimer" type="Timer" parent="Navigation"]
 wait_time = 0.1
 autostart = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]

@@ -15,13 +15,13 @@ func generate_terrain() -> void:
 	for w in MAP_SIZE_WIDHT:
 		for h in MAP_SIZE_HEIGHT:
 			instantiate_map_tile(Vector2(w*MAP_TILE_SIZE,h*MAP_TILE_SIZE))
-			print("Set for H: %s  W: %s" % [w,h])
+			#print("Set for H: %s  W: %s" % [w,h])
 	
-	print("Finish Map Terrain")
+	#print("Finish Map Terrain")
 	get_parent().start_baking()
 
 func instantiate_map_tile(pos:Vector2) -> void:
-	print(pos)
+	#print(pos)
 	var instance := terrain_presets.pick_random().instantiate() as Node2D
 	add_child(instance)
 	instance.position = pos

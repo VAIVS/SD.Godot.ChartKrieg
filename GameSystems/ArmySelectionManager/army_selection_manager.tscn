@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxp3f2rd243id"]
+
+[ext_resource type="Script" path="res://GameSystems/ArmySelectionManager/army_selection_manager.gd" id="1_pi1pf"]
+[ext_resource type="PackedScene" uid="uid://in8ejjeiyfls" path="res://Components/Map/SelectedArmyMarker/selected_army_marker.tscn" id="2_avrrv"]
+
+[node name="ArmySelectionManager" type="Node"]
+script = ExtResource("1_pi1pf")
+army_highlight_scene = ExtResource("2_avrrv")
